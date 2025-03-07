@@ -3,10 +3,7 @@
 local RETRY = true
 local ANTIAFK = true
 
-
 print("On")
-loadstring(game:HttpGet("https://raw.githubusercontent.com/infyiff/backup/main/dex.lua"))()
-
 
 local ScreenGui = Instance.new("ScreenGui")
 ScreenGui.Parent = game.CoreGui
@@ -22,21 +19,19 @@ Frame.Draggable = true
 local AutoRetryButton = Instance.new("TextButton")
 AutoRetryButton.Parent = Frame
 AutoRetryButton.BackgroundColor3 = Color3.fromRGB(0, 200, 0)
-AutoRetryButton.Size = UDim2.new(0, 100, 0, 50)
-AutoRetryButton.Position = UDim2.new(0, 0, 0, 50)
+AutoRetryButton.Size = UDim2.new(0, 150, 0, 50)
+AutoRetryButton.Position = UDim2.new(0, 50, 0, 20)
 AutoRetryButton.TextColor3 = Color3.new(0, 0, 0)
-AutoRetryButton.BackgroundTransparency = 1
 AutoRetryButton.Text = "AutoRetry: True"
 
 
-
-local AntiAFKLabel = Instance.new("TextLabel")
-AntiAFKLabel.Parent = Frame
-AntiAFKLabel.Text = "AntiAFK:"
-AntiAFKLabel.Size = UDim2.new(0, 100, 0, 50)
-AntiAFKLabel.Position = UDim2.new(0, 50, 0, 100)
-AntiAFKLabel.TextColor3 = Color3.new(1, 1, 1)
-AntiAFKLabel.BackgroundTransparency = 1
+local AntiAFKButton = Instance.new("TextButton")
+AntiAFKButton.Parent = Frame
+AntiAFKButton.BackgroundColor3 = Color3.fromRGB(0, 200, 0)
+AntiAFKButton.Size = UDim2.new(0, 150, 0, 50)
+AntiAFKButton.Position = UDim2.new(0, 150, 0, 20)
+AntiAFKButton.TextColor3 = Color3.new(0, 0, 0)
+AntiAFKButton.Text = "AntiAFK: True"
 
 
 
@@ -53,6 +48,21 @@ AutoRetryButton.MouseButton1Down:connect(function()
 		RETRY = true
 		AutoRetryButton.BackgroundColor3 = Color3.fromRGB(0, 200, 0)
 		AutoRetryButton.Text = "AutoRetry: True"
+		
+	end
+end)
+
+
+AntiAFKButton.MouseButton1Down:connect(function()
+	if ANTIAFK then
+		ANTIAFK = false
+		AntiAFKButton.BackgroundColor3 = Color3.fromRGB(200, 0, 0)
+		AntiAFKButton.Text = "AntiAFK: False"
+
+	else
+		ANTIAFK = true
+		AntiAFKButton.BackgroundColor3 = Color3.fromRGB(0, 200, 0)
+		AntiAFKButton.Text = "AntiAFK: True"
 		
 	end
 end)
