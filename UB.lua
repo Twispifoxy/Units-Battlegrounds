@@ -6,3 +6,5 @@ local source = "https://raw.githubusercontent.com/Twispifoxy/Units-Battlegrounds
 print("on")
 
 queue_on_teleport("loadstring(game:HttpGet('"   .. source   .. "'))()" );
+
+print("on2")
