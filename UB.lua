@@ -100,7 +100,21 @@ end)
 
 
 while true do
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/Twispifoxy/Units-Battlegrounds/refs/heads/main/UB.lua"))()
+	ScreenGui = nil
+	local scriptContent = game:HttpGet("https://raw.githubusercontent.com/Twispifoxy/Units-Battlegrounds/refs/heads/main/UB.lua", true)
+    
+    if not scriptContent or scriptContent == "" then
+        warn("Ошибка: скрипт не загружен или пуст")
+        return
+    end
+    
+    local success, func = pcall(loadstring, scriptContent)
+    
+    if success and func then
+        pcall(func)
+    else
+        warn("Ошибка выполнения loadstring: " .. tostring(func))
+    end
 	wait(10)
 end
 
