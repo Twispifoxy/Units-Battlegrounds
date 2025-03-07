@@ -84,7 +84,7 @@ MiniButton1.MouseButton1Click:Connect(function()
 	AntiAFKButton.Visible = false
 	MiniButton1.Visible = false
 	MiniButton2.Visible = true
-	ScreenGui.Frame..Position = UDim2.new(0, 300, 0, 0)
+	ScreenGui.Frame.Position = UDim2.new(0, 300, 0, 0)
 end)
 
 MiniButton2.MouseButton1Click:Connect(function()
@@ -92,7 +92,7 @@ MiniButton2.MouseButton1Click:Connect(function()
 	AntiAFKButton.Visible = true
 	MiniButton1.Visible = true
 	MiniButton2.Visible = false
-	ScreenGui.Frame..Position = UDim2.new(0, 0, 0, 0)
+	ScreenGui.Frame.Position = UDim2.new(0, 0, 0, 0)
 end)
 
 
@@ -102,18 +102,21 @@ end)
 while true do
 	ScreenGui = nil
 	local scriptContent = game:HttpGet("https://raw.githubusercontent.com/Twispifoxy/Units-Battlegrounds/refs/heads/main/UB.lua", true)
-    
+
     if not scriptContent or scriptContent == "" then
         warn("Ошибка: скрипт не загружен или пуст")
         return
     end
-    
-    local success, func = pcall(loadstring, scriptContent)
-    
-    if success and func then
-        pcall(func)
+
+    local func, errorMessage = load(scriptContent)
+
+    if func then
+        local success, runtimeError = pcall(func)
+        if not success then
+            warn("Ошибка выполнения скрипта: " .. runtimeError)
+        end
     else
-        warn("Ошибка выполнения loadstring: " .. tostring(func))
+        warn("Ошибка компиляции: " .. errorMessage)
     end
 	wait(10)
 end
