@@ -1,8 +1,5 @@
 ﻿repeat wait() until game:IsLoaded()
 
-local Events = game:GetService("ReplicatedStorage"):WaitForChild("Events")
-local RetryGame_upvr = Events.Game:WaitForChild("RetryGame")
-
 local RETRY = true
 local ANTIAFK = true
 
@@ -69,6 +66,11 @@ end
 
 --queue_on_teleport("loadstring(game:HttpGet('"   .. source   .. "'))()" );
 
+
+--[[
+local Events = game:GetService("ReplicatedStorage"):WaitForChild("Events")
+local RetryGame_upvr = Events.Game:WaitForChild("RetryGame")
+]]
 
 
 
