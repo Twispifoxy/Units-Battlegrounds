@@ -26,7 +26,7 @@ AutoRetryButton.Size = UDim2.new(0, 100, 0, 50)
 AutoRetryButton.Position = UDim2.new(0, 0, 0, 50)
 AutoRetryButton.TextColor3 = Color3.new(0, 0, 0)
 AutoRetryButton.BackgroundTransparency = 1
-AutoRetryButton.Text = "AutoRetry: " .. RETRY
+AutoRetryButton.Text = "AutoRetry: True"
 
 
 
@@ -47,10 +47,12 @@ AutoRetryButton.MouseButton1Down:connect(function()
 	if RETRY then
 		RETRY = false
 		AutoRetryButton.BackgroundColor3 = Color3.fromRGB(200, 0, 0)
+		AutoRetryButton.Text = "AutoRetry: False"
 
 	else
 		RETRY = true
 		AutoRetryButton.BackgroundColor3 = Color3.fromRGB(0, 200, 0)
+		AutoRetryButton.Text = "AutoRetry: True"
 		
 	end
 end)
