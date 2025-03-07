@@ -1,7 +1,5 @@
 ﻿repeat wait() until game:IsLoaded()
 
-local source = "https://raw.githubusercontent.com/Twispifoxy/Units-Battlegrounds/refs/heads/main/UB.lua"
-
 local Events = game:GetService("ReplicatedStorage"):WaitForChild("Events")
 local RetryGame_upvr = Events.Game:WaitForChild("RetryGame")
 
@@ -65,7 +63,7 @@ end)
 
 
 while true do
-	loadstring(game:HttpGet(source))()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/Twispifoxy/Units-Battlegrounds/refs/heads/main/UB.lua"))()
 	wait(10)
 end
 
